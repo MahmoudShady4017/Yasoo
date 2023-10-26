@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yasoo</title>
+    <style>
+        body {
+            background-color: #000;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        #name {
+            font-family: 'Open Sans', sans-serif;
+            font-size: 3rem;
+            text-align: center;
+        }
+
+        .hidden {
+            color: transparent;
+        }
+
+        .visible {
+            color: red;
+            animation: fadeIn 2s infinite;
+        }
+
+        @keyframes fadeIn {
+            0%, 100% {
+                color: transparent;
+            }
+            50% {
+                color: red;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="name">
+        <span class="hidden">Y</span>
+        <span class="hidden">a</span>
+        <span class="hidden">s</span>
+        <span class="hidden">o</span>
+        <span class="hidden">o</span>
+        <span class="hidden">❤️</span>
+    </div>
+    <script>
+        const letters = document.querySelectorAll('#name span');
+
+        let currentLetterIndex = 0;
+
+        function showNextLetter() {
+            if (currentLetterIndex < letters.length) {
+                letters[currentLetterIndex].classList.remove('hidden');
+                letters[currentLetterIndex].classList.add('visible');
+                currentLetterIndex++;
+                setTimeout(showNextLetter, 500); // يمكنك تعديل سرعة الظهور هنا
+            }
+        }
+
+        showNextLetter();
+    </script>
+</body>
+</html>
